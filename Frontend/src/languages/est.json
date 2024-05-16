@@ -1,0 +1,88 @@
+{
+    "title": "Tere tulemast lehele, mis on loodud OAuth2.0 autoriseerimisprotokolliga tutvumiseks.",
+    "description": "OAuth 2.0 protokoll on standardne autoriseerimise protokoll, kõik selle protokolli voogud viivad ligipääsu tokeni (access token) loomiseni, mida klient kasutab ressurssi serveris asuvatele kaitstud ressurssidele juurdepääsuks. Antud protokoll võimaldab kasutajal lubada juurdepääsu oma kaitstud andmetele ilma enda pikaajalisi autentimisandmete paljastamata ning eraldab kliendi rolli ressursi omaniku rollist.",
+    "roles": "OAuth 2.0-l on järgmised rollid:",
+    "owner":"Ressursi omanik (Resource Owner): Kasutaja või süsteem, kellele kuuluvad kaitstud ressursid.",
+    "client":"Klient (Client): Süsteem, mis taotleb ligipääsu kaitstud ressurssidele.",
+    "authServer":"Autoriseerimise Server (Authorization Server): Antud server saab klientilt taotlusi ligipääsu tokeni (access token) saamiseks ning väljastab ligipääsu tokeni (access token) pärast ressursiomaniku autentimist ja nõusolekut.",
+    "resServer":"Ressursi Server (Resource Server): Antud server saab klientidelt taotlusi ligipääsuks ressurssidele. Selle eesmärk on vastu võtta ja kontrollida ligipääsu tokeni (access token) ning lõpuks väljastada nõutavaid ressursse.",
+    "links":"Kasutatud lingid",
+    
+    "register":"Kõigepealt peaks klient registreerima oma rakenduse (esitades rakenduse kohta teavet, edasisuunamise URL-i, mida rakendus hakkab kasutama) valitud teenuses (näiteks Facebook/Google) ja saama sellised andmed nagu Client ID ja Client Secret, mida läheb vaja rakenduse autentimiseks. Edasisuunamise URL-ide registreerimine on oluline, kuna see vähendab riski, et ligipääsu token (access token) või autoriseerimise kood (authorization code) võib olla kätte saadud pahatahtlike poolt, kuna OAuth API suunab kasutajad ainult eelnevalt registreeritud URL-ile.",
+    "secret":"Pärast autentimisandmete kättesaamist on oluline see, et Client ID on avalik teave ja seda kasutatakse autoriseerimise URL-i loomiseks, kuid Client Secret peaks jääma konfidentsiaalseks.",
+    "info": "Ressurssidele juurdepääsu saamiseks on olemas erinevaid samme, mille kohta saab lisateavet <a href=\"https://auth0.com/intro-to-iam/what-is-oauth-2\">OAuth veebilehel</a>). Antud veebilehel käsitletakse meetodit „Authorization Code“, mis on OAuth 2.0 kõige levinum kasutusviis ja sobib kõige paremini serverirakendustele, kus ligipääsu tokeni (access token) turvaline kättesaamine saab toimuda serveripoolselt.",
+    "url":"Protsess algab kasutaja suunamisega autoriseerimislehele, selleks peab rakendus looma sarnase URL-i ja suunama kasutaja sellele:",
+    
+    "url_response":"response_type=code - teatab autoriseerimisserverit, et kasutatakse 'Authorization Code' voogu.;",
+    "url_client_id":"client_id - eelnevalt mainitud rakenduse registreerimisel saadud identifikaator;",
+    "url_redirect_uri":"redirect_uri - näitab, kuhu suunata kasutaja pärast edukat autoriseerimist;",
+    "url_scope":"scope - sisaldab teavet selle kohta, millistele andmetele või lubadele täpselt juurdepääsu küsitakse;",
+    "url_state":"state - sisaldab juhuslikult genereeritud koodi, mida rakendus hiljem võrdleb väärtusega, mis tagastatakse pärast kasutaja autoriseerimist",
+
+    "button":"Autoriseerimise algus",
+    
+    "2title":"Autentimise etapp",
+    "2.1info":"Antud etapis toimub kasutaja autentimine. Antud etapis sisestab kasutaja oma kasutajatunnused, et kinnitada oma identiteet.",
+    
+    "3title":"Loa saamise etapp",
+    "3.1info":"Pärast edukat autentimist küsib süsteem kasutajalt luba teatud andmetele juurdepääsuks. See on tehtud kasutaja konfidentsiaalse teabe kaitsmiseks ja kasutaja kontrolli andmiseks selle üle, milliseid andmeid soovitakse saada või milliseid toiminguid tema nimel soovitakse teha.",
+    "3.2info":"Ehk pärast edukat autentimist näeb kasutaja tavaliselt järgmist:", 
+    "3.3info":"Rakendusele '...' antakse juurdepääs teie andmetele: nimi, e-posti aadress, keeleseaded ja profiilifoto.",
+    "3button":"Luba ja jätka",
+    
+    
+    "4title":"Ajutise autoriseerimiskoodi saamise etapp",
+    "4.1info":"Pärast edukat autentimist suunatakse kasutaja ümbersuunamise URI-le (redirect_uri) koos ühekordse autoriseerimiskoodiga (redirect URI-le lisatakse ajutine autoriseerimiskood, mille on genereerinud autoriseerimise server ja state, oodatud on, et rakendus võrdleb seda eelnevalt loodud state-ga ).",
+    "4.2info":"Antud koodil on piiratud kehtivusaeg, mis muudab selle võrgus edastamise turvalisemaks.",
+    "4button":"Edasi",
+    
+    "5title":"Autoriseerimiskoodi vahetamise etapp ligipääsu tokeni vastu",
+    "5.1info":"Autoriseerimiskoodi saamise järel saadab klient selle Autoriseerimise serverile vahetamiseks ligipääsu tokeni vastu. Ligipääsu token on unikaalne sümbolite jada, mis annab rakendusele juurdepääsu kaitstud ressurssidele.",
+    "5.2info":"Autoriseerimiskoodi (code) vahetamine ligipääsu tokeni vastu toimub tavaliselt päringuga autoriseerimise serverile, milles on järgmised parameetrid:",
+    "grant_type":"grant_type=authorization_code;",
+    "code":"code (autoriseerimise kood);",
+    "redirect_uri":"redirect_uri (on soovitatav tutvuda kasutatava API dokumentatsiooniga, kuna mõned API-d ei nõua seda parameetrit);",
+    "client_id":"client_id и client_secret (rakenduse registreerimisel valitud teenuse veebisaidil saadud autentimisandmed).",
+    "5.3info":"Autoriseerimise server kontrollib päringus esitatud andmeid ning juhul, kui kõik andmed on korrektsed, väljastab ligipääsu tokeni, millel on tavaliselt piiratud kehtivusaeg.",
+    "5.4info":"Hiljem saadud tokenit kasutatakse kasutaja andmete saamise lõplikuks etapis, valitud teenuse API-le päringu saatmiseks. API päringu tegemisel token saadetakse HTTP päringu Authorization header-i kaudu.",
+    "5button":"Testi sooritamine",
+    
+    "results":"tulemused",
+    "quitButton":"Lõpeta",
+    "group":"Grupp",
+    "name":"Nimi",
+    "quizError":"Sisestage grupp ja nimi!",
+    "end":"Test on lõpetatud. Tulemus:",
+    "test":"Test",
+    
+    "quest1?":"Millised on peamised rollid OAuth 2.0 protokollis?",
+    "answer1.1":"Ressursi omanik, klient, autoriseerimise server, ressursi server",
+    "answer1.2":"Kasutaja, administraator, arendaja",
+    "answer1.3":"Klient, server, andmebaas",
+    
+    "quest2?":"Mis on ajutine autoriseerimise kood ?",
+    "answer2.1":"Ühekordne kood, mida kasutatakse vahetamiseks ligipääsu tokeni vastu.",
+    "answer2.2":"Kasutaja parool",
+    "answer2.3":"Kliendi ID",
+    
+    "quest3?":"Ajutise autoriseerimise koodi vahetamise ligipääsu tokeni vastu peamiseks eesmärgiks on...",
+    "answer3.1":"Autentimisprotsessi kiirendamine",
+    "answer3.2":"Anda rakendusele juurdepääs kaitstud ressurssidele",
+    "answer3.3":"Kasutaja andmete krüpteerimine",
+    
+    "quest4?":"Mis on Client Secret OAuth 2.0 protokollis?",
+    "answer4.1":"Rakenduse URL",
+    "answer4.2":"Kliendi avalik teave",
+    "answer4.3":"Kliendi konfidentsiaalne teave",
+    
+    "quest5?":"Kuidas rakendus teatab serverile, kuhu suunata kasutaja pärast autoriseerimist?",
+    "answer5.1":"Läbi redirect_uri parameetri autoriseerimispäringu URL-is.",
+    "answer5.2":"Läbi response_type parameetri autoriseerimispäringu URL-is.",
+    "answer5.3":"Läbi state parameetri autoriseerimispäringu URL-is.",
+    
+    "quest6?":"Milline server täidab kliendi ligipääsu tokeni taotluste vastuvõtmise funktsiooni?",
+    "answer6.1":"Tokeni Server",
+    "answer6.2":"Autoriseerimise Server",
+    "answer6.3":"Ressursi server"
+    }
+    
