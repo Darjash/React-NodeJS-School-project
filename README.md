@@ -1,3 +1,13 @@
+## Project
+
+This project is a resource containing brief information about the principle of operation of the OAuth2.0 protocol in two languages, 
+which also contains a test, the results of which are displayed on a separate page. 
+Access to results page is limited by authorization.
+
+Technologies used:
+TypeScript, Material Ui, React, Node js, Express.js, MySQL
+
+
 ## Setup Instructions
 
 ### Database Setup
