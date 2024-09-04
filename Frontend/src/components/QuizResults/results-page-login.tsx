@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Card, TextField, Typography, useMediaQuery } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { theme } from '../theme';
+import { theme } from '../../theme';
 
 export function LoginPage() {
     const [login, setLogin] = useState('');

@@ -59,7 +59,7 @@ return (
             textAlign: 'center',
           }}
         >
-          <Typography sx={{ marginBottom: '20px' }} variant="h5"> Oauth 2.0 </Typography>
+          <Typography sx={{ marginBottom: '20px' }} variant="h5"> OAuth 2.0 </Typography>
           {t('title')}
         </Typography>
         <Typography

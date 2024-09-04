@@ -2,16 +2,16 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import { Header } from './components/header';
-import { MainPage } from './components/mainPage';
-import { Authorisation } from './components/authorisation';
-import { Permission } from './components/permission';
-import { GetCode } from './components/code';
-import { GetToken } from './components/token';
+import { MainPage } from './components/oauth2.0-info-page-intro';
+import { Authorisation } from './components/oauth2.0-info-page-authorisation';
+import { Permission } from './components/oauth2.0-info-page-permission';
+import { GetCode } from './components/oauth2.0-info-page-code';
+import { GetToken } from './components/oauth2.0-info-page-token';
 import { theme } from './theme';
 import { Quiz } from './components/quiz';
-import { ResultsPage } from './components/resultsPage';
-import { LoginPage } from './components/login';
-import { Header2 } from './components/header2';
+import { ResultsPage } from './components/QuizResults/results-page';
+import { LoginPage } from './components/QuizResults/results-page-login';
+import { Header2 } from './components/QuizResults/results-page-header';
 
 export default function App() {
   return (

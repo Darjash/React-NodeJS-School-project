@@ -1,11 +1,11 @@
 ## Project
 
-This project is a resource containing brief information about the principle of operation of the OAuth2.0 protocol in two languages, 
+This school project is a resource containing brief information about the principle of operation of the OAuth2.0 protocol in two languages (estonian and russian), 
 which also contains a test, the results of which are displayed on a separate page. 
-Access to results page is limited by authorization.
+Access to results page is protected by authorization.
 
 Technologies used:
-TypeScript, Material Ui, React, Node js, Express.js, MySQL
+TypeScript, Material Ui, React, Node js, Express.js, JWT, MySQL
 
 
 ## Setup Instructions
@@ -15,7 +15,7 @@ TypeScript, Material Ui, React, Node js, Express.js, MySQL
 2. From the project's root directory, execute the following commands:
 
 docker rm -f mysql
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456789 -d -p 3306:3306 -v ${PWD}/Data:/var/lib/mysql mysql:8.0.36 --default-authentication-plugin=mysql_native_password
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456789 -d -p 3307:3306 -v ${PWD}/Data:/var/lib/mysql mysql:8.0.36 --default-authentication-plugin=mysql_native_password
 
 ### Backend Setup
 1. Navigate to the Backend directory: `cd Backend`
